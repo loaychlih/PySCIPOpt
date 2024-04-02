@@ -307,6 +307,10 @@ cdef class Column:
         """gets position of column in current LP, or -1 if it is not in LP"""
         return SCIPcolGetLPPos(self.scip_col)
 
+    def getIndex(self):
+           return SCIPcolGetIndex(self.scip_col)
+       
+
     def getBasisStatus(self):
         """gets the basis status of a column in the LP solution, Note: returns basis status `zero` for columns not in the current SCIP LP"""
         cdef SCIP_BASESTAT stat = SCIPcolGetBasisStatus(self.scip_col)
